@@ -1,0 +1,20 @@
+{{define "content"}}
+<div itemscope itemtype="http://schema.org/Blog">
+{{range $k, $v := .}}
+<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+		<time datetime="{{$v.PostTime}}" data-updated="true" itemprop="datePublished">{{date $v.PostTime "M j"}}<span>th</span>, {{date $v.PostTime "Y"}}</time>
+		</div>
+		<div class="tags">{{str2html $v.Tags}}</div>
+	</div>
+	<h1 class="title" itemprop="name">
+	<a href="{{$v.Link}}" itemprop="url">{{str2html $v.Title}}</a>
+	</h1>
+	<div class="entry-content" itemprop="articleBody">
+	{{str2html $v.Content}}
+	</div>
+</article>
+{{end}}
+</div>
+{{end}}

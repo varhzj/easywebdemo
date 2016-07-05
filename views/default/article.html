@@ -1,0 +1,10 @@
+{{define "content"}}
+<div itemscope itemtype="http://schema.org/Blog">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="title" itemprop="name">{{.Title}}</h1>
+        <div class="entry-content" itemprop="articleBody">
+            {{str2html .Content}}
+        </div>
+    </article>
+</div>
+{{end}}
